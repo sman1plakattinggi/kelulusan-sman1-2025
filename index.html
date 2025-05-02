@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kelulusan SMAN 1 Plakat Tinggi</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
 </head>
 <body class="bg-gray-50 text-gray-800">
-  <!-- Header -->
   <header class="bg-white shadow p-4 flex items-center justify-between">
     <div class="flex items-center">
       <img src="logo-sman1.png" alt="Logo SMAN 1 Plakat Tinggi" class="h-12 mr-4">
@@ -15,7 +15,6 @@
     </div>
   </header>
 
-  <!-- Sambutan Kepala Sekolah -->
   <section class="max-w-3xl mx-auto p-6 text-center">
     <h2 class="text-2xl font-semibold mb-4">Sambutan Kepala Sekolah</h2>
     <p class="mb-6">
@@ -23,11 +22,9 @@
       Perjalanan kalian penuh perjuangan dan hari ini adalah momen membanggakan yang menandai awal dari langkah besar berikutnya. 
       Kami bangga atas pencapaian kalian.
     </p>
-    <div id="countdown" class="text-lg font-bold text-red-600 mb-4"></div>
-    <button id="btn-lulus" disabled class="bg-gray-400 text-white px-6 py-2 rounded-full cursor-not-allowed">LIHAT HASIL KELULUSAN</button>
+    <button id="btn-lulus" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700" onclick="document.getElementById('login-section').scrollIntoView({ behavior: 'smooth' })">LIHAT HASIL KELULUSAN</button>
   </section>
 
-  <!-- Formulir Cek Kelulusan -->
   <section id="login-section" class="max-w-md mx-auto bg-white shadow p-6 rounded-md mt-10">
     <h3 class="text-xl font-semibold mb-4 text-center">Cek Kelulusan</h3>
     <label for="nisn" class="block mb-2 font-medium">Masukkan NISN:</label>
@@ -36,16 +33,12 @@
     <div id="hasil" class="mt-6 text-center font-semibold"></div>
   </section>
 
-  <!-- Footer -->
   <footer class="bg-white shadow mt-10 p-4 text-center text-sm text-gray-500">
     <p>SMAN 1 Plakat Tinggi - Jl. Pendidikan No.1, Plakat Tinggi</p>
     <p>Telp: (0711) 123456 | Email: info@sman1plakattinggi.sch.id</p>
   </footer>
 
-  <!-- Load data kelulusan dari file eksternal -->
   <script src="dataKelulusan.js"></script>
-
-  <!-- Script Cek Kelulusan dan Countdown -->
   <script>
     function cekKelulusan() {
       const nisn = document.getElementById('nisn').value;
@@ -62,30 +55,6 @@
         hasilDiv.innerHTML = '<p class="text-red-600">NISN tidak ditemukan. Harap periksa kembali.</p>';
       }
     }
-
-    // Countdown Timer
-    const countdownElement = document.getElementById('countdown');
-    const button = document.getElementById('btn-lulus');
-    const targetTime = new Date("2025-05-05T15:00:00+07:00").getTime(); // 22:00 WIB
-
-    const countdownInterval = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = targetTime - now;
-
-      if (distance <= 0) {
-        clearInterval(countdownInterval);
-        countdownElement.textContent = "Pengumuman telah dibuka.";
-        button.disabled = false;
-        button.classList.remove('bg-gray-400', 'cursor-not-allowed');
-        button.classList.add('bg-blue-600', 'hover:bg-blue-700');
-        button.onclick = () => document.getElementById('login-section').scrollIntoView({ behavior: 'smooth' });
-      } else {
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        countdownElement.textContent = `Pengumuman dibuka dalam ${hours}j ${minutes}m ${seconds}d`;
-      }
-    }, 1000);
   </script>
 </body>
 </html>

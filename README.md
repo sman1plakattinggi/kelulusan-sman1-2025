@@ -4,9 +4,6 @@
 
 Website ini dibuat untuk menampilkan hasil kelulusan peserta didik secara online. Siswa dapat melihat status kelulusan mereka dengan memasukkan NISN pada halaman utama.
 
-🕒 Pengumuman resmi dibuka pada:
-**5 Mei 2025, pukul 22.00 WIB**
-
 ---
 
 ## 🔗 Akses Website
@@ -20,13 +17,6 @@ Website ini dibuat untuk menampilkan hasil kelulusan peserta didik secara online
 - `index.html` — Halaman utama pengumuman
 - `dataKelulusan.js` — Data NISN dan status kelulusan
 - `logo-sman1.png` — Logo resmi sekolah
-
----
-
-## 🚸 Catatan
-
-- Pastikan seluruh berkas berada di **root** repository.
-- Countdown akan otomatis mengaktifkan tombol login pada waktu yang ditentukan.
 
 ---
 
